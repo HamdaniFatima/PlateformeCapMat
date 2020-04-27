@@ -1,0 +1,294 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Transitive by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>CapMat</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+		<link rel="stylesheet" href="{% static 'template/assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{%  static  'css/style.css' %}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="{%  static 'collaboration/assets/css/main.css' %}"  />
+    
+
+  </head>
+  <style>
+
+
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+
+
+
+
+
+
+  </style>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				
+				<a href="#menu" class="toggle"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+          <li><a href="{% url 'students:first_page' %}">Accueil </a></li>
+					<li><a href="{% url 'students:lanceur_projet_home' %}">Nouveau Projet</a></li>
+					<li><a href="{% url 'students:mes_projets' %}">Mes Projets</a></li>
+					<li><a href="{% url 'students:collaborations' %}">Mes Collaborations</a></li>
+					<li><a href="{% url 'students:capteur_home' %}">Mes Capteurs</a></li>
+					<li><a href="{% url 'students:profile'%}">Profile</a></li>
+					<li><a href="{% url 'logout' %}">Se déconnecter</a></li>
+				</ul>
+			</nav>
+
+		<!-- One -->
+
+
+    <section id="theree" class="wrapper style3">
+      <div class="inner">
+
+        <header class="align-center">
+          <h2>Ma liste d'experts à contacter</h2>
+         
+        </header>
+
+  
+      </div>
+    </section>
+
+
+
+
+
+
+			<section id="theree" class="wrapper style1">
+				<div class="inner">
+
+				
+
+				
+					<div class="flex flex-3">
+
+					
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th>Expert</th>
+                  <th>Adresse Email</th>
+                  <th>Contacter</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                {% for quiz in quizzes %}
+                  <tr>
+                    <td class="align-middle">{{ quiz.student.nom }} {{ quiz.student.prenom }}</td>
+                    <td class="align-middle">{{ quiz.student.adresse_email}}</td>
+
+                    <td class="align-middle">
+                      <a href="" class="btn btn-info">Contacter</a>
+                    </td>
+                
+                  </tr>
+                {% empty %}
+                  <tr>
+                    <td class="bg-light text-center font-italic" colspan="4">Vous n'avez pas encore ajouté d'experts .</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+					</div>
+				</div>
+			</section>
+
+
+
+
+			<footer id="footer">
+				<div class="copyright">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-snapchat"><span class="label">Snapchat</span></a></li>
+					</ul>
+					<p>&copy; copyright: 2020 <a href="https://templated.co/">ERPI (Research team on innovation process)</a></p>
+				</div>
+			</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div> 
+		<!-- Scripts -->
+		<script src="{%  static 'collaboration/assets/js/jquery.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/jquery.scrolly.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/jquery.scrollex.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/skel.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/util.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/main.js' %}"></script>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

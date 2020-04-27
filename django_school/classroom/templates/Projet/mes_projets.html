@@ -1,0 +1,210 @@
+
+
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Transitive by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>CapMat</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'template/assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'template/assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{%  static  'css/style.css' %}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800" rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
+
+	  <!-- Plugins -->
+	  <link rel="stylesheet" href="{% static 'acro/css/plugins.css' %}" />
+
+	  <link rel="stylesheet" href="{%  static 'collaboration/assets/css/main.css' %}"  />
+	  
+        <!-- Core Style Css -->
+        <link rel="stylesheet" href="{% static 'acro/css/style.css' %}" />
+
+
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+	<!-- Header -->
+	<header id="header">
+		
+		<a href="#menu" class="toggle"><span>Menu</span></a>
+	</header>
+
+<!-- Nav -->
+	<nav id="menu">
+		<ul class="links">
+			<li><a href="{% url 'students:first_page' %}">Accueil </a></li>
+			<li><a href="{% url 'students:lanceur_projet_home' %}">Nouveau Projet</a></li>
+			<li><a href="{% url 'students:mes_projets' %}">Mes Projets</a></li>
+			<li><a href="{% url 'students:collaborations' %}">Mes Collaborations</a></li>
+			<li><a href="{% url 'students:capteur_home' %}">La Banque de technologies</a></li>
+			<li><a href="{% url 'students:profile'%}">Profil</a></li>
+			<li><a href="{% url 'logout' %}">Se déconnecter</a></li>
+		</ul>
+	</nav>
+
+
+		
+
+
+		<section id="theree" class="wrapper style3">
+			<div class="inner">
+
+				<header class="align-center">
+					<h2>Consultation de mes projets</h2>
+					<p>Dans la section « Mes projets », vous accédez à l’ensemble de vos projets ainsi qu’à la liste des experts correspondante aux caractéristiques de chacun de vos projets.</p>
+				</header>
+
+			
+			</div>
+		</section>
+
+
+
+        
+        <section class="contact section-padding" data-scroll-index="7">
+            <div class="container">
+                <div class="row">
+
+           
+              
+                    
+              
+                    <div class="offset-lg-1 col-lg-10 offset-md-1 col-md-10">
+
+
+                            
+		
+						{% for quiz in quizzes %}
+						
+						<div class="sidebar-box" style="  box-shadow: 2px 2px 15px grey;
+					border-radius: 6px;" >
+					
+
+					 <div class="section-head text-center col-sm-12">
+						<h6>{{ quiz.titre_projet }}</h6>
+						<p >{{ quiz.description_projet}}</p>
+						<small><a href="tech-single.html" title="">{{quiz.created_at}}</a></small></br>
+						
+					<a href="{% url 'students:projet_change' quiz.pk %}"  class="butn butn-light mt-30">
+						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+						<span>Modifier</span>            
+					</a>
+					
+					<a href="{% url 'students:projet_detail' quiz.slug %}"  class="butn butn-light mt-30">
+						<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+						<span>Visionner</span>            
+					</a>
+					<a href="{% url 'students:projet_delete' quiz.pk  %}" class="butn butn-light mt-30">
+					   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						<span>Supprimer</span>            
+					</a>
+					<a href="{% url 'students:collaboration_page' quiz.pk %}" class="butn butn-bg mt-30">
+						<span class="" aria-hidden="true"></span>
+						 <span>Chercher des Experts</span>           
+					 </a>
+                    </div>
+  
+				
+                             
+						</div>
+						{% empty %}     
+						<small><a href="{% url 'students:lanceur_projet_home' %}" title="">Commencer à créer votre projet</a></small>
+								  
+						   {% endfor %} 
+  
+                 
+                    </div>
+            
+
+         
+            </div>
+            </div>
+        </section>
+
+
+
+
+        <footer class="text-center">
+            <div class="container">
+
+                <!-- Logo -->
+                <a class="logo" href="#">
+                    <img src="{% static 'acro/img/logo-light.png" alt="logo">          
+                </a>
+                
+                <div class="social">
+                    <a href="#0" class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#0" class="icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#0" class="icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#0" class="icon">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                    <a href="#0" class="icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+
+                <p>&copy; 2020 ERPI Laboratory. All Rights Reserved.</p>
+        
+
+            </div>
+        </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+		</div> 
+		<!-- Scripts -->
+		<script src="{%  static 'collaboration/assets/js/jquery.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/jquery.scrolly.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/jquery.scrollex.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/skel.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/util.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/main.js' %}"></script>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

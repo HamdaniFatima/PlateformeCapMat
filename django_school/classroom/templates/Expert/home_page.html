@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Transitive by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>CapMat</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'template/assets/css/main.css' %}" />
+
+	</head>
+	<body>
+
+		<!-- Header -->
+		<!-- Header -->
+    <header id="header">
+   
+      <a href="#menu" class="toggle"><span>Menu</span></a>
+    </header>
+
+  <!-- Nav -->
+    <nav id="menu">
+      <ul class="links">
+		<li><a href="{% url 'students:first_page' %}">Accueil </a></li>
+		<li><a href="{% url 'students:lanceur_projet_home' %}">Nouveau Projet</a></li>
+		<li><a href="{% url 'students:mes_projets' %}">Mes Projets</a></li>
+		<li><a href="{% url 'students:collaborations' %}">Mes Collaborations</a></li>
+		<li><a href="{% url 'students:capteur_home' %}">La Banque de technologies</a></li>
+		<li><a href="{% url 'students:profile'%}">Profil</a></li>
+		<li><a href="{% url 'logout' %}">Se déconnecter</a></li>
+      </ul>
+    </nav>
+
+		<!-- Banner -->
+		<!--
+			To use a video as your background, set data-video to the name of your video without
+			its extension (eg. [% static 'template/images/banner). Your video must be available in both .mp4 and .webm
+			formats to work correctly.
+		-->
+	
+		<!-- One -->
+			
+	
+			<section id="three" class="wrapper style2">
+				<div class="inner">
+					<div class="grid-style">
+
+						<div>
+							<div class="box">
+								<div class="image fit">
+									<img src="{% static 'template/images/pic02.jpg' %}" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<h2>Annuaire des experts  </h2>
+										
+										<hr />
+										<a href="{% url 'students:Annuaire' %}" class="button alt">Chercher</a>
+									</header>
+									
+
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<div class="box">
+								<div class="image fit">
+									<img src="{% static 'template/images/pic03.jpg' %}" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<h2>Ma Liste des experts </h2>
+										
+										<hr />
+										<a href="{% url 'students:liste' %}" class="button alt">consulter</a>
+									</header>
+
+								
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+		<!-- Four -->
+
+
+
+		<footer id="footer">
+			<div class="copyright">
+				<ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon fa-snapchat"><span class="label">Snapchat</span></a></li>
+				</ul>
+				<p>	&copy; copyright: 2020 <a href="https://templated.co/">ERPI (Research team on innovation process)</a>.</p>
+			</div>
+		</footer>
+
+
+
+
+
+		<!-- Scripts -->
+			<script src="{% static 'template/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'template/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'template/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'template/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'template/assets/js/util.js' %}"></script>
+			<script src="{% static 'template/assets/js/main.js' %}"></script>
+
+	</body>
+</html>

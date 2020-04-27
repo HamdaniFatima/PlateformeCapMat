@@ -1,0 +1,130 @@
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Transitive by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>CapMat</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'template/assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'template/assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{%  static  'css/style.css' %}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	  <link rel="stylesheet" href="{%  static 'collaboration/assets/css/main.css' %}"  />
+
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+			
+				<a href="#menu" class="toggle"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{% url 'students:first_page' %}">Accueil </a></li>
+					<li><a href="{% url 'students:lanceur_projet_home' %}">Nouveau Projet</a></li>
+					<li><a href="{% url 'students:mes_projets' %}">Mes Projets</a></li>
+					<li><a href="{% url 'students:collaborations' %}">Mes Collaborations</a></li>
+					<li><a href="{% url 'students:capteur_home' %}">La Banque de technologies</a></li>
+					<li><a href="{% url 'students:profile'%}">Profil</a></li>
+					<li><a href="{% url 'logout' %}">Se déconnecter</a></li>
+				</ul>
+			</nav>
+
+		<!-- One -->
+
+
+		
+
+
+
+
+
+			<section id="theree" class="wrapper style1">
+				<div class="inner">
+
+
+					
+				
+					<div class="flex flex-1">
+
+					
+				
+						
+						
+						<div class="sidebar-box" style="  box-shadow: 2px 2px 15px grey;
+					border-radius: 6px;" >
+					
+		
+
+                     {% block content %}
+  
+         
+                     <form method="POST" class="post-form" enctype="multipart/form-data">
+                       {% csrf_token %}
+                       {{ form|crispy }}
+					   <button type="submit" class="btn btn-success">Sauvegarder</button>
+					   <a href="{% url 'students:forum_list' %}" class="btn btn-info">Annuler</a>
+                 
+                     </form>
+           
+               
+                       {% endblock %}
+               
+                                    
+				
+					</div>
+				</div>
+			</section>
+
+
+
+			<footer id="footer">
+				<div class="copyright">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-snapchat"><span class="label">Snapchat</span></a></li>
+					</ul>
+					<p>	&copy; copyright: 2020 <a href="https://templated.co/">ERPI (Research team on innovation process)</a>.</p>
+				</div>
+			</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div> 
+		<!-- Scripts -->
+		<script src="{%  static 'collaboration/assets/js/jquery.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/jquery.scrolly.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/jquery.scrollex.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/skel.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/util.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/main.js' %}"></script>
+
+	</body>
+</html>
